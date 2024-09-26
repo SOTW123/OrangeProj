@@ -1,0 +1,97 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  perspective: 1000px; /* Perspective for 3D effect */
+}
+
+.container span {
+  position: absolute; /* Ensure items are stacked on top of each other */
+  margin-top: 100px;
+  opacity: 0.8; /* Increase initial opacity for better visibility */
+  width: 50%; /* Wider for a more modern look */
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212; /* Neon gradient */
+  border-radius: 20px; /* More pronounced rounded corners */
+  color: white;
+  font-family: "Poppins", sans-serif; /* Ensure Poppins is imported */
+  font-size: 72px; /* Larger font size for better readability */
+  text-align: center;
+  margin: 0 200px;
+  opacity: 0%;
+  transition: transform 0.5s, opacity 1s; /* Smooth transition */
+}
+.container .selected {
+  opacity: 1; /* Full opacity for selected item */
+  transform: scale(1.1); /* Slightly larger when selected */
+  box-shadow: 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(0, 255, 204, 1); /* Stronger glow for selected item */
+}
+
+/* Box-shadow color for each span */
+#about-us {
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.7), 0 0 30px rgba(255, 69, 0, 0.7); /* Orange glow */
+}
+
+#popular {
+  box-shadow: 0 0 20px rgba(34, 139, 34, 0.7), 0 0 30px rgba(34, 139, 34, 0.7); /* Green glow */
+}
+
+#animations {
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.7), 0 0 30px rgba(30, 144, 255, 0.7); /* Blue glow */
+}
+
+#trending {
+  box-shadow: 0 0 20px rgba(148, 0, 211, 0.7), 0 0 30px rgba(148, 0, 211, 0.7); /* Purple glow */
+}
+
+#newsletter {
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.7); /* Pink glow */
+}
+
+.left-4 {
+  transform: rotateY(-180deg) translateZ(750px);
+}
+.left-3 {
+  transform: rotateY(-135deg) translateZ(750px);
+}
+.left-2 {
+  transform: rotateY(-90deg) translateZ(750px);
+}
+.left-1 {
+  transform: rotateY(-45deg) translateZ(750px);
+}
+.right-1 {
+  transform: rotateY(45deg) translateZ(750px);
+}
+
+.right-2 {
+  transform: rotateY(90deg) translateZ(750px);
+}
+
+.right-3 {
+  transform: rotateY(135deg) translateZ(750px);
+}
+
+.right-4 {
+  transform: rotateY(180deg) translateZ(750px);
+}

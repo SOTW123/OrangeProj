@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orienta&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom, #1a1a1a 50%, #6b2e00 100%);
+        color: whitesmoke;
+        font-family: poppins;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        max-width: 80vw;
+        height: 101vh; /* Each section takes full viewport height */
+        margin: 0 auto;
+        gap: 40px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #ffb74d;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.6;
+        max-width: 500px;
+        color: #e0e0e0;
+        text-align: left;
+      }
+
+      img {
+        width: 500px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        border: 3px solid #ffb74d;
+        transition: all 1s;
+        opacity: 0;
+        transform: translateX(1000px);
+      }
+
+      .hidden {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-1000px);
+        transition: all 1s;
+      }
+
+      .show {
+        opacity: 1;
+        filter: none;
+        transform: translateX(0);
+      }
+
+      .show img {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      @media (max-width: 768px) {
+        section {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hidden">
+      <div>
+        <h1>Our Story</h1>
+        <p>
+          At Orange Orchard, we are passionate about bringing the freshest,
+          juiciest oranges from our groves to your table. Our journey began in
+          1995 with a small family-owned farm nestled in the heart of
+          California, where generations have cultivated citrus with care and
+          dedication.
+        </p>
+      </div>
+      <img src="../orange.jpeg" alt="Oranges" />
+    </section>
+
+    <section class="hidden">
+      <div>
+        <h1>What We Stand For</h1>
+        <p>
+          Our mission is simple: to provide you with the best oranges nature has
+          to offer while respecting the land that nurtures them. From farm to
+          your doorstep, we prioritize organic farming practices, minimal
+          environmental impact, and ethical labor.
+        </p>
+      </div>
+      <img src="../orange orchard.jpeg" alt="Farm" />
+    </section>
+
+    <section class="hidden">
+      <div>
+        <h1>Why Choose Us</h1>
+        <p>
+          At Orange Orchard, it’s not just about selling oranges — it’s about
+          delivering a burst of sunshine with every bite. Whether you’re
+          enjoying our oranges fresh, juiced, or baked into your favorite
+          recipe, you can count on consistent quality and flavor.
+        </p>
+      </div>
+      <img src="../orange pastry.jpeg" alt="Sunshine" />
+    </section>
+
+    <script>
+      document.addEventListener("keydown", (event) => {
+        if (event.code == "Escape") {
+          window.location.href = "/";
+        }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      });
+
+      const hidden = document.querySelectorAll(".hidden");
+      hidden.forEach((element) => {
+        observer.observe(element);
+      });
+    </script>
+  </body>
+</html>
